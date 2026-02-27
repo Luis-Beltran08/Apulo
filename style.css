@@ -1,0 +1,142 @@
+/* 1. Configuración General (El "Lienzo") */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* Para que los tamaños sean exactos */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #f4f7f6; /* Un gris muy clarito para que no canse la vista */
+    color: #333;
+    line-height: 1.6;
+}
+
+/* 2. El Header (El Título) */
+header {
+    background-color: #2c3e50; /* Azul oscuro elegante */
+    color: white;
+    padding: 2rem 1rem;
+    text-align: center;
+}
+
+header h1 {
+    font-size: 1.5rem;
+    text-transform: uppercase;
+}
+
+/* 3. Las Secciones (Los Cajones) */
+section {
+    background: white;
+    margin: 15px;
+    padding: 20px;
+    border-radius: 10px; /* Bordes redondeados como las apps modernas */
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1); /* Una sombra suave */
+}
+
+/* =========================================
+   ESTILOS DE GALERÍA DE IMÁGENES
+   ========================================= */
+
+/* 1. Contenedor de toda la galería */
+#galeria {
+    text-align: center; /* Centra el contenido horizontalmente */
+    padding: 20px;
+    background-color: white;
+    border-radius: 10px;
+    margin: 15px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+/* 2. Estilos para la imagen PRINCIPAL (la grande) */
+.img-principal {
+    display: block;      /* Importante para centrar con margin: auto */
+    width: 100%;         /* Se adapta al ancho del celular */
+    max-width: 600px;    /* ¡MÁXIMO ANCHO EN PC! Esto evita que sea gigante */
+    height: auto;        /* Mantiene la proporción */
+    border-radius: 8px;
+    margin: 0 auto;      /* Centra horizontalmente */
+    border: 3px solid #2c3e50; /* Un borde elegante */
+}
+
+/* 3. Estilos para el contenedor de MINIATURAS (las de abajo) */
+.galeria-secundaria {
+    display: flex;       /* Alinea las miniaturas en fila */
+    justify-content: center; /* Centra la fila entera */
+    gap: 15px;          /* Espacio entre cada miniatura */
+    margin-top: 20px;   /* Espacio respecto a la imagen principal */
+    flex-wrap: wrap;    /* Si no caben, bajan a la siguiente fila */
+}
+
+/* 4. Estilos para las MINIATURAS (las pequeñas) */
+.galeria-secundaria img {
+    /* --- AQUÍ ESTÁ EL TRUCO PARA ACHICARLAS --- */
+    width: 100px;       /* Ancho fijo para todas las miniaturas */
+    height: 100px;      /* Alto fijo para hacerlas CUADRADAS */
+    /* ------------------------------------------ */
+
+    object-fit: cover;  /* Importante: recorta la imagen para que llene el cuadrado sin estirarse */
+    border-radius: 8px;
+    border: 2px solid #ddd; /* Borde suave */
+    transition: transform 0.3s; /* Efecto suave al pasar el mouse */
+    cursor: pointer;
+}
+
+/* Efecto visual al pasar el mouse por encima de una miniatura */
+.galeria-secundaria img:hover {
+    transform: scale(1.1); /* Agranda un poquito la imagen */
+    border-color: #25d366; /* Cambia el borde a verde WhatsApp */
+}
+
+/* 5. El Botón de WhatsApp (Nuestra Clase Especial) */
+.btn-whatsapp {
+    display: block;
+    background-color: #25d366; /* Verde WhatsApp */
+    color: white;
+    text-align: center;
+    padding: 15px;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 50px; /* Botón ovalado */
+    margin: 20px 0;
+    font-size: 1.1rem;
+    transition: transform 0.3s; /* Efecto al tocarlo */
+}
+
+.btn-whatsapp:active {
+    transform: scale(0.95); /* Se hunde un poquito al tocarlo en el celular */
+}
+
+/* 6. Ajustes para la lista de detalles */
+ul {
+    list-style: none; /* Quitamos los puntos aburridos */
+    padding-top: 10px;
+}
+
+li {
+    margin-bottom: 10px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 5px;
+}
+
+/* Estilos para la galería de miniaturas */
+.galeria-secundaria {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.galeria-secundaria img {
+    width: 30%; /* Tres fotos por fila */
+    border-radius: 5px;
+    cursor: pointer;
+    border: 2px solid #ddd;
+}
+
+/* Estilos para el mapa */
+.mapa-contenedor {
+    border-radius: 8px;
+    overflow: hidden; /* Para que el mapa respete los bordes redondeados */
+    margin-top: 10px;
+}
