@@ -1,142 +1,339 @@
-/* 1. Configuración General (El "Lienzo") */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box; /* Para que los tamaños sean exactos */
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+:root{
+  --bg: #f6f7fb;
+  --card: #ffffff;
+  --text: #0f172a;
+  --muted: #475569;
+  --border: rgba(15, 23, 42, 0.12);
+  --shadow: 0 10px 26px rgba(2, 6, 23, 0.10);
+  --radius: 16px;
+
+  --accent: #16a34a;
+  --accent2: #22c55e;
+  --link: #2563eb;
+
+  --maxw: 1050px;
 }
 
-body {
-    background-color: #f4f7f6; /* Un gris muy clarito para que no canse la vista */
-    color: #333;
-    line-height: 1.6;
+*{ box-sizing: border-box; }
+html, body{ height: 100%; }
+
+body{
+  margin: 0;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.55;
 }
 
-/* 2. El Header (El Título) */
-header {
-    background-color: #2c3e50; /* Azul oscuro elegante */
-    color: white;
-    padding: 2rem 1rem;
-    text-align: center;
+.container{
+  width: min(var(--maxw), calc(100% - 32px));
+  margin: 0 auto;
 }
 
-header h1 {
-    font-size: 1.5rem;
-    text-transform: uppercase;
+/* Topbar */
+.topbar{
+  background: linear-gradient(180deg, #ffffff, #f3f5ff);
+  border-bottom: 1px solid var(--border);
 }
 
-/* 3. Las Secciones (Los Cajones) */
-section {
-    background: white;
-    margin: 15px;
-    padding: 20px;
-    border-radius: 10px; /* Bordes redondeados como las apps modernas */
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1); /* Una sombra suave */
+.topbar__inner{
+  padding: 20px 0;
+  display: grid;
+  gap: 14px;
+  grid-template-columns: 1.5fr 1fr;
+  align-items: center;
 }
 
-/* =========================================
-   ESTILOS DE GALERÍA DE IMÁGENES
-   ========================================= */
-
-/* 1. Contenedor de toda la galería */
-#galeria {
-    text-align: center; /* Centra el contenido horizontalmente */
-    padding: 20px;
-    background-color: white;
-    border-radius: 10px;
-    margin: 15px;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+h1{
+  margin: 0;
+  font-size: clamp(22px, 3vw, 34px);
+  letter-spacing: 0.2px;
 }
 
-/* 2. Estilos para la imagen PRINCIPAL (la grande) */
-.img-principal {
-    display: block;      /* Importante para centrar con margin: auto */
-    width: 100%;         /* Se adapta al ancho del celular */
-    max-width: 600px;    /* ¡MÁXIMO ANCHO EN PC! Esto evita que sea gigante */
-    height: auto;        /* Mantiene la proporción */
-    border-radius: 8px;
-    margin: 0 auto;      /* Centra horizontalmente */
-    border: 3px solid #2c3e50; /* Un borde elegante */
+.subtitle{
+  margin: 4px 0 0;
+  color: var(--muted);
 }
 
-/* 3. Estilos para el contenedor de MINIATURAS (las de abajo) */
-.galeria-secundaria {
-    display: flex;       /* Alinea las miniaturas en fila */
-    justify-content: center; /* Centra la fila entera */
-    gap: 15px;          /* Espacio entre cada miniatura */
-    margin-top: 20px;   /* Espacio respecto a la imagen principal */
-    flex-wrap: wrap;    /* Si no caben, bajan a la siguiente fila */
+.pricebox{
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 14px 14px;
 }
 
-/* 4. Estilos para las MINIATURAS (las pequeñas) */
-.galeria-secundaria img {
-    /* --- AQUÍ ESTÁ EL TRUCO PARA ACHICARLAS --- */
-    width: 100px;       /* Ancho fijo para todas las miniaturas */
-    height: 100px;      /* Alto fijo para hacerlas CUADRADAS */
-    /* ------------------------------------------ */
-
-    object-fit: cover;  /* Importante: recorta la imagen para que llene el cuadrado sin estirarse */
-    border-radius: 8px;
-    border: 2px solid #ddd; /* Borde suave */
-    transition: transform 0.3s; /* Efecto suave al pasar el mouse */
-    cursor: pointer;
+.pricebox__label{
+  font-size: 12px;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
 }
 
-/* Efecto visual al pasar el mouse por encima de una miniatura */
-.galeria-secundaria img:hover {
-    transform: scale(1.1); /* Agranda un poquito la imagen */
-    border-color: #25d366; /* Cambia el borde a verde WhatsApp */
+.pricebox__value{
+  font-size: 22px;
+  font-weight: 800;
+  margin-top: 2px;
 }
 
-/* 5. El Botón de WhatsApp (Nuestra Clase Especial) */
-.btn-whatsapp {
-    display: block;
-    background-color: #25d366; /* Verde WhatsApp */
-    color: white;
-    text-align: center;
-    padding: 15px;
-    text-decoration: none;
-    font-weight: bold;
-    border-radius: 50px; /* Botón ovalado */
-    margin: 20px 0;
-    font-size: 1.1rem;
-    transition: transform 0.3s; /* Efecto al tocarlo */
+.pricebox__hint{
+  color: var(--muted);
+  font-size: 13px;
+  margin-top: 2px;
 }
 
-.btn-whatsapp:active {
-    transform: scale(0.95); /* Se hunde un poquito al tocarlo en el celular */
+/* Cards */
+main{
+  padding: 18px 0 30px;
+  display: grid;
+  gap: 16px;
 }
 
-/* 6. Ajustes para la lista de detalles */
-ul {
-    list-style: none; /* Quitamos los puntos aburridos */
-    padding-top: 10px;
+.card{
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 16px;
 }
 
-li {
-    margin-bottom: 10px;
-    border-bottom: 1px solid #eee;
-    padding-bottom: 5px;
+h2{
+  margin: 0 0 10px;
+  font-size: 20px;
 }
 
-/* Estilos para la galería de miniaturas */
-.galeria-secundaria {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-    margin-top: 15px;
+h3{
+  margin: 0 0 10px;
+  font-size: 16px;
 }
 
-.galeria-secundaria img {
-    width: 30%; /* Tres fotos por fila */
-    border-radius: 5px;
-    cursor: pointer;
-    border: 2px solid #ddd;
+.muted{ color: var(--muted); }
+
+/* Gallery */
+.gallery{
+  display: grid;
+  gap: 12px;
 }
 
-/* Estilos para el mapa */
-.mapa-contenedor {
-    border-radius: 8px;
-    overflow: hidden; /* Para que el mapa respete los bordes redondeados */
-    margin-top: 10px;
+.gallery__main{
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: calc(var(--radius) - 6px);
+  border: 1px solid var(--border);
+}
+
+.gallery__thumbs{
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+}
+
+.thumb{
+  padding: 0;
+  border: 2px solid transparent;
+  border-radius: 12px;
+  overflow: hidden;
+  background: transparent;
+  cursor: pointer;
+}
+
+.thumb img{
+  width: 100%;
+  height: 90px;
+  object-fit: cover;
+  display: block;
+  border-radius: 10px;
+}
+
+.thumb.is-active{
+  border-color: rgba(34, 197, 94, 0.85);
+}
+
+/* Pills */
+.heroFacts{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 14px;
+}
+
+.pill{
+  background: #f1f5f9;
+  border: 1px solid rgba(15, 23, 42, 0.10);
+  padding: 8px 10px;
+  border-radius: 999px;
+  font-size: 13px;
+}
+
+/* Grids */
+.grid2{
+  display: grid;
+  gap: 14px;
+  grid-template-columns: 1fr 1fr;
+  margin-top: 14px;
+}
+
+.infoBox{
+  border: 1px solid rgba(15, 23, 42, 0.10);
+  border-radius: 14px;
+  padding: 12px;
+  background: #fbfdff;
+}
+
+.infoBox ul{
+  margin: 0;
+  padding-left: 18px;
+}
+
+.infoBox li{ margin: 8px 0; }
+
+.specGrid{
+  display: grid;
+  gap: 10px;
+  grid-template-columns: repeat(4, 1fr);
+  margin-top: 10px;
+}
+
+.spec{
+  border: 1px solid rgba(15, 23, 42, 0.10);
+  border-radius: 14px;
+  padding: 12px;
+  background: #fbfdff;
+}
+
+.spec__k{
+  color: var(--muted);
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.spec__v{
+  margin-top: 4px;
+  font-weight: 800;
+}
+
+.divider{
+  height: 1px;
+  background: rgba(15, 23, 42, 0.10);
+  margin: 14px 0;
+}
+
+.checks{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 16px;
+}
+
+.check{
+  display: inline-flex;
+  gap: 8px;
+  align-items: center;
+  padding: 8px 10px;
+  background: #f1f5f9;
+  border: 1px solid rgba(15, 23, 42, 0.10);
+  border-radius: 999px;
+  font-size: 13px;
+}
+
+.note{
+  margin-top: 12px;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.sectionHeader{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+}
+
+.link{
+  color: var(--link);
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 14px;
+}
+
+.link:hover{ text-decoration: underline; }
+
+.mapWrap{
+  margin-top: 12px;
+  overflow: hidden;
+  border-radius: calc(var(--radius) - 6px);
+  border: 1px solid var(--border);
+}
+
+.contactGrid{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  margin-top: 12px;
+}
+
+.ctaRow{
+  margin-top: 14px;
+  display: flex;
+  justify-content: center;
+}
+
+.btn{
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  font-weight: 900;
+  padding: 14px 16px;
+  border-radius: 999px;
+  background: linear-gradient(180deg, var(--accent2), var(--accent));
+  color: #06240f;
+  border: 1px solid rgba(0,0,0,0.15);
+  min-width: min(520px, 100%);
+  box-shadow: 0 12px 18px rgba(34,197,94,0.18);
+}
+
+/* WhatsApp flotante */
+.waFloat{
+  position: fixed;
+  right: 16px;
+  bottom: 16px;
+  z-index: 20;
+  text-decoration: none;
+  font-weight: 900;
+  padding: 12px 14px;
+  border-radius: 999px;
+  background: linear-gradient(180deg, var(--accent2), var(--accent));
+  color: #06240f;
+  border: 1px solid rgba(0,0,0,0.15);
+  box-shadow: 0 12px 22px rgba(34,197,94,0.22);
+}
+
+/* Footer */
+.footer{
+  padding: 18px 0 26px;
+  color: var(--muted);
+  font-size: 13px;
+  text-align: center;
+}
+
+/* Responsive */
+@media (max-width: 900px){
+  .topbar__inner{
+    grid-template-columns: 1fr;
+  }
+  .specGrid{
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .grid2{
+    grid-template-columns: 1fr;
+  }
+  .contactGrid{
+    grid-template-columns: 1fr;
+  }
+  .gallery__thumbs{
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .thumb img{ height: 110px; }
 }

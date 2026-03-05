@@ -1,60 +1,213 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Venta Casa-Lote Apulo | Oportunidad</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Venta Casa-Lote Apulo | Oportunidad</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
+
 <body>
 
-    <header>
-        <h1>Gran Oportunidad de Inversión</h1>
-        <h2>CASA-LOTE EN APULO, CUNDINAMARCA</h2>
-    </header>
+  <!-- Barra superior simple -->
+  <header class="topbar">
+    <div class="container topbar__inner">
+      <div>
+        <h1>Casa-Lote en Apulo, Cundinamarca</h1>
+        <p class="subtitle">Oportunidad para descanso o inversión turística</p>
+      </div>
 
-    <main>
-        <section id="galeria">
-            <img src="./img/casa1.png" alt="Fachada de la casa" class="img-principal">
-            
-            <div class="galeria-secundaria">
-                <img src="./img/ruta_desde_Bogota.png" alt="Interior 1">
-                <img src="./img/Iglesia.png" alt="Interior 2">
-                <img src="./img/images-4149f7/mochi.png" alt="Patio">
-            </div>
-        </section>
+      <div class="pricebox">
+        <div class="pricebox__label">Precio</div>
+        <div class="pricebox__value">$ 250.000.000</div>
+        <div class="pricebox__hint">Negociable · Documentación en proceso avanzado</div>
+      </div>
+    </div>
+  </header>
 
-        <section id="descripcion">
-            <h3>Sobre Apulo</h3>
-            <p><strong>Apulo</strong> es un paraíso turístico a solo 101 km de Bogotá. Con un clima cálido de <strong>28°C</strong>, es el lugar ideal para el descanso.</p>
-        </section>
+  <main class="container">
 
-        <section id="detalles">
-            <h3>Detalles de la Propiedad</h3>
-            <ul>
-                <li><strong>Ubicación:</strong> Casco urbano de Apulo.</li>
-                <li><strong>Estado Legal:</strong> Proceso de sucesión avanzado.</li>
-                <li><strong>Ventaja:</strong> Excelente clima y valorización.</li>
-            </ul>
-        </section>
+    <!-- HERO / Galería -->
+    <section class="card">
+      <div class="gallery">
+        <img id="imgPrincipal" src="./img/casa1.png" alt="Fachada de la casa en Apulo" class="gallery__main" />
 
-        <section id="ubicacion">
-            <h3>Ubicación</h3>
-            <div class="mapa-contenedor">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15911.33230896024!2d-74.5986423!3d4.5157147!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e3f059080b063d3%3A0x6b83f08149e8a5b!2sApulo%2C%20Cundinamarca!5e0!3m2!1ses!2sco!4v1700000000000!5m2!1ses!2sco" width="100%" height="250" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-            </div>
-        </section>
+        <div class="gallery__thumbs" aria-label="Galería de imágenes">
+          <!-- IMPORTANTE: usa rutas reales y consistentes -->
+          <button class="thumb is-active" type="button" data-src="./img/casa1.png" aria-label="Ver fachada">
+            <img src="./img/casa1.png" alt="Miniatura fachada" />
+          </button>
 
-        <div class="contacto">
-            <a href="https://wa.me/573001234567?text=Hola,%20vi%20el%20catálogo%20web%20y%20me%20gustaría%20más%20información%20sobre%20la%20casa%20en%20Apulo" class="btn-whatsapp" target="_blank">
-                ¡Me interesa! Hablar por WhatsApp
-            </a>
+          <button class="thumb" type="button" data-src="./img/ruta_desde_Bogota.png" aria-label="Ver ruta desde Bogotá">
+            <img src="./img/ruta_desde_Bogota.png" alt="Miniatura ruta desde Bogotá" />
+          </button>
+
+          <button class="thumb" type="button" data-src="./img/Iglesia.png" aria-label="Ver iglesia o punto central">
+            <img src="./img/Iglesia.png" alt="Miniatura iglesia" />
+          </button>
+
+          <button class="thumb" type="button" data-src="./img/mochi.png" aria-label="Ver patio o vista adicional">
+            <img src="./img/mochi.png" alt="Miniatura patio o vista" />
+          </button>
+
+          <!-- Agrega más si tienes:
+          <button class="thumb" type="button" data-src="./img/interior1.png"><img ... /></button>
+          -->
         </div>
-    </main>
+      </div>
 
-    <footer>
-        <p>&copy; 2026 - Proyecto Familiar Campos Montenero</p>
-    </footer>
+      <div class="heroFacts">
+        <div class="pill">📍 Casco urbano</div>
+        <div class="pill">☀️ Clima cálido aprox. 28°C</div>
+        <div class="pill">🚗 Aprox. 101 km de Bogotá</div>
+        <div class="pill">🏡 Ideal Airbnb / descanso</div>
+      </div>
+    </section>
+
+    <!-- Sección: Por qué esta propiedad -->
+    <section class="card">
+      <h2>Por qué vale la pena</h2>
+      <p class="muted">
+        Propiedad familiar ubicada en el casco urbano de Apulo. Por su ubicación y el crecimiento turístico de la zona,
+        es ideal para casa de descanso o inversión (renta vacacional / Airbnb).
+      </p>
+
+      <div class="grid2">
+        <div class="infoBox">
+          <h3>✅ Beneficios de Apulo</h3>
+          <ul>
+            <li>Cercanía a Bogotá (viaje por carretera).</li>
+            <li>Clima cálido todo el año.</li>
+            <li>Destino turístico con potencial de valorización.</li>
+            <li>Ambiente tranquilo para descanso.</li>
+          </ul>
+        </div>
+
+        <div class="infoBox">
+          <h3>🎯 Ideal para</h3>
+          <ul>
+            <li>Casa de descanso familiar.</li>
+            <li>Proyecto turístico / renta corta.</li>
+            <li>Remodelación y valorización.</li>
+            <li>Inversión a mediano plazo.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Sección: Detalles clave -->
+    <section class="card">
+      <h2>Detalles de la propiedad</h2>
+
+      <div class="specGrid">
+        <div class="spec">
+          <div class="spec__k">Área del lote</div>
+          <div class="spec__v">596 m²</div>
+        </div>
+        <div class="spec">
+          <div class="spec__k">Área construida</div>
+          <div class="spec__v">120 m²</div>
+        </div>
+        <div class="spec">
+          <div class="spec__k">Ubicación</div>
+          <div class="spec__v">Casco urbano</div>
+        </div>
+        <div class="spec">
+          <div class="spec__k">Estado legal</div>
+          <div class="spec__v">Sucesión en proceso avanzado</div>
+        </div>
+      </div>
+
+      <div class="divider"></div>
+
+      <h3>Servicios (marca lo que aplica)</h3>
+      <div class="checks">
+        <label class="check"><input type="checkbox" checked disabled /> Agua</label>
+        <label class="check"><input type="checkbox" checked disabled /> Energía</label>
+        <label class="check"><input type="checkbox" checked disabled /> Gas</label>
+        <label class="check"><input type="checkbox" checked disabled /> Alcantarillado</label>
+        <label class="check"><input type="checkbox" checked disabled /> Internet disponible</label>
+      </div>
+
+      
+    </section>
+
+    <!-- Ubicación -->
+    <section class="card">
+      <div class="sectionHeader">
+        <h2>Ubicación</h2>
+        <a class="link" target="_blank" rel="noopener"
+           href="https://www.google.com/maps/search/?api=1&query=Apulo%2C%20Cundinamarca">
+          Abrir en Google Maps →
+        </a>
+      </div>
+
+      <div class="mapWrap">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15911.33230896024!2d-74.5986423!3d4.5157147!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e3f059080b063d3%3A0x6b83f08149e8a5b!2sApulo%2C%20Cundinamarca!5e0!3m2!1ses!2sco!4v1700000000000!5m2!1ses!2sco"
+          width="100%" height="320" style="border:0;" allowfullscreen="" loading="lazy">
+        </iframe>
+      </div>
+    </section>
+
+    <!-- Contacto final -->
+    <section class="card">
+      <h2>Contacto</h2>
+      <p class="muted">Si te interesa, escríbenos por WhatsApp y coordinamos visita o te enviamos información completa.</p>
+
+      <div class="contactGrid">
+        <div class="infoBox">
+          <h3>Familia Campos Montenero</h3>
+          <p class="muted">Atención por WhatsApp</p>
+          <p><strong>+57 315 2081966</strong></p>
+        </div>
+
+        <div class="infoBox">
+          <h3>Documentación</h3>
+          <p class="muted">Proceso de sucesión en estado avanzado.</p>
+          <p class="muted">Se entregan soportes y se aclaran condiciones al interesado.</p>
+        </div>
+      </div>
+
+      <div class="ctaRow">
+        <a class="btn" target="_blank" rel="noopener"
+           href="https://wa.me/573152081966?text=Hola,%20vi%20la%20p%C3%A1gina%20de%20la%20casa-lote%20en%20Apulo%20y%20quisiera%20precio,%20%C3%A1rea%20(m2)%20y%20agendar%20una%20visita.">
+          Solicitar información por WhatsApp
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- WhatsApp flotante -->
+  <a class="waFloat" target="_blank" rel="noopener"
+     href="https://wa.me/573152081966?text=Hola,%20vi%20la%20casa-lote%20en%20Apulo%20y%20quisiera%20m%C3%A1s%20informaci%C3%B3n.">
+    WhatsApp
+  </a>
+
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2026 - Proyecto Familiar Campos Montenero</p>
+    </div>
+  </footer>
+
+  <script>
+    // Galería: clic en miniatura cambia la principal
+    const principal = document.getElementById("imgPrincipal");
+    const thumbs = document.querySelectorAll(".thumb");
+
+    thumbs.forEach(btn => {
+      btn.addEventListener("click", () => {
+        const src = btn.getAttribute("data-src");
+        if (!src) return;
+
+        principal.src = src;
+
+        thumbs.forEach(b => b.classList.remove("is-active"));
+        btn.classList.add("is-active");
+      });
+    });
+  </script>
 
 </body>
 </html>
